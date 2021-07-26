@@ -1,6 +1,4 @@
 <!--  
-    take in personnel data
-    display each user by last name, then first. each name capitalized
     hovering over a name must change color
     padding of 10px by 5px for each user
     centered horizontally and vertically on screen
@@ -51,11 +49,11 @@
 // handle data to get it to a usable format
 const data = JSON.stringify(personnel);
 const output = JSON.parse(data);
-// check that it's coming through correctly
-console.log(output);
-// test basic output
-document.getElementById("json").innerHTML =
-output[0].lname + ", " + output[0].fname;
+// output names
+let display = document.getElementById("json")
+for (let i = 0; i < output.length; i++) {
+    display.innerHTML += output[i].lname.charAt(0).toUpperCase() +  output[i].lname.slice(1) + ", " + output[i].fname.charAt(0).toUpperCase() + output[i].fname.slice(1) + "</br>"
+}
 </script>
 
 </body>
