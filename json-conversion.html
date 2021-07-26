@@ -1,0 +1,62 @@
+<!--  
+    take in personnel data
+    display each user by last name, then first. each name capitalized
+    hovering over a name must change color
+    padding of 10px by 5px for each user
+    centered horizontally and vertically on screen
+    must remain centered on screen resize -->
+    
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="json"></p>
+
+<script>
+
+// JSON data
+ const personnel = [
+    {
+        "fname": "esme",
+        "lname": "sanchez",
+        "id": 1892038,
+        "isTherapist": true
+    },
+    {
+        "fname": "rick",
+        "lname": "jeps",
+        "id": 1894024,
+        "isTherapist": false
+    },
+    {
+        "fname": "angie",
+        "lname": "lange",
+        "id": 1982403,
+        "isTherapist": false
+    },
+    {
+        "fname": "renat",
+        "lname": "gros",
+        "id": 1894039,
+        "isTherapist": true
+    },
+    {
+        "fname": "bettino",
+        "lname": "yang",
+        "id": 3789204,
+        "isTherapist": true
+    }
+]
+// handle data to get it to a usable format
+const data = JSON.stringify(personnel);
+const output = JSON.parse(data);
+// check that it's coming through correctly
+console.log(output);
+// test basic output
+document.getElementById("json").innerHTML =
+output[0].lname + ", " + output[0].fname;
+</script>
+
+</body>
+</html>
