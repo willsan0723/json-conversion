@@ -1,60 +1,56 @@
-<!--  
-    hovering over a name must change color
-    padding of 10px by 5px for each user
-    centered horizontally and vertically on screen
-    must remain centered on screen resize -->
-    
-
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="stylesheet" href="style.css" />
+</head>
+    
 <body>
-
-<p id="json"></p>
-
+    <div id="json">
+    </div>
+    
 <script>
-
-// JSON data
- const personnel = [
-    {
-        "fname": "esme",
-        "lname": "sanchez",
-        "id": 1892038,
-        "isTherapist": true
-    },
-    {
-        "fname": "rick",
-        "lname": "jeps",
-        "id": 1894024,
-        "isTherapist": false
-    },
-    {
-        "fname": "angie",
-        "lname": "lange",
-        "id": 1982403,
-        "isTherapist": false
-    },
-    {
-        "fname": "renat",
-        "lname": "gros",
-        "id": 1894039,
-        "isTherapist": true
-    },
-    {
-        "fname": "bettino",
-        "lname": "yang",
-        "id": 3789204,
-        "isTherapist": true
+    // JSON data
+    const personnel = [
+        {
+            "fname": "esme",
+            "lname": "sanchez",
+            "id": 1892038,
+            "isTherapist": true
+        },
+        {
+            "fname": "rick",
+            "lname": "jeps",
+            "id": 1894024,
+            "isTherapist": false
+        },
+        {
+            "fname": "angie",
+            "lname": "lange",
+            "id": 1982403,
+            "isTherapist": false
+        },
+        {
+            "fname": "renat",
+            "lname": "gros",
+            "id": 1894039,
+            "isTherapist": true
+        },
+        {
+            "fname": "bettino",
+            "lname": "yang",
+            "id": 3789204,
+            "isTherapist": true
+        }
+    ]
+    // handle data to get it to a usable format
+    const data = JSON.stringify(personnel);
+    const output = JSON.parse(data);
+    // output names
+    let display = document.getElementById("json")
+    for (let i = 0; i < output.length; i++) {
+        display.innerHTML += "<p>" +output[i].lname.charAt(0).toUpperCase() +  output[i].lname.slice(1) + ", " + output[i].fname.charAt(0).toUpperCase() + output[i].fname.slice(1) + "</p>"
     }
-]
-// handle data to get it to a usable format
-const data = JSON.stringify(personnel);
-const output = JSON.parse(data);
-// output names
-let display = document.getElementById("json")
-for (let i = 0; i < output.length; i++) {
-    display.innerHTML += output[i].lname.charAt(0).toUpperCase() +  output[i].lname.slice(1) + ", " + output[i].fname.charAt(0).toUpperCase() + output[i].fname.slice(1) + "</br>"
-}
-</script>
+    </script>
 
 </body>
 </html>
